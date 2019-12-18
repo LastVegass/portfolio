@@ -4,5 +4,5 @@
   <p><%= resume_item.title %></p>
   <p><%= resume_item.subtitle %></p>
   <p><%= resume_item.body %></p>
-  <p><%= image_tag resume_item.thumb_image %></p>
+  <%= image_tag resume_item.thumb_image unless resume_item.thumb_image.nil? %>
 <% end %>
