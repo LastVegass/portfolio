@@ -19,4 +19,20 @@ class ResumesController < ApplicationController
     end
   end
 
+  def edit
+    @resume_item = Resume.find(params[:id])
+  end
+
+  def update
+    @resume_item = Resume.find(params[:id])
+
+    respond_to do |format|
+      if @resume_item.update(params.require(:resume).permit(:title, :subtitle, :body))
+        format.html { redirect_to resumes_path, notice: 'Record was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
 end
