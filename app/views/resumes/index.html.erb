@@ -1,0 +1,8 @@
+<h1>Resumes items</h1>
+
+<% @resume_item.each do |resume_item| %>
+  <p><%= resume_item.title %></p>
+  <p><%= resume_item.subtitle %></p>
+  <p><%= resume_item.body %></p>
+  <p><%= image_tag resume_item.thumb_image %></p>
+<% end %>
