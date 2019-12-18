@@ -1,8 +1,13 @@
 <h1>Resumes items</h1>
 
+<a href="resumes/new" title="">Create new item</a>
+
+<%= link_to "Create new item", new_resume_url %>
+
 <% @resume_item.each do |resume_item| %>
   <p><%= resume_item.title %></p>
   <p><%= resume_item.subtitle %></p>
   <p><%= resume_item.body %></p>
   <%= image_tag resume_item.thumb_image unless resume_item.thumb_image.nil? %>
+  <%= link_to "Edit", edit_resume_path(resume_item.id) %>
 <% end %>
