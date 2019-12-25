@@ -35,4 +35,8 @@ class ResumesController < ApplicationController
     end
   end
 
+  def show
+    @resume_item = Resume.find(params[:id])
+  end
+
 end
