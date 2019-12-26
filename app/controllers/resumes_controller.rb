@@ -39,4 +39,17 @@ class ResumesController < ApplicationController
     @resume_item = Resume.find(params[:id])
   end
 
+  def destroy
+    #Perform the lookup
+    @resume_item = Resume.find(params[:id])
+
+    #Destroy the record
+    @resume_item.destroy
+
+    #Rederict
+    respond_to do |format|
+      format.html { redirect_to resumes_url, notice: 'Record was removed.' }
+    end
+  end
+
 end
