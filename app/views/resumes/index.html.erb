@@ -3,7 +3,7 @@
 <%= link_to "Create new item", new_resume_url %>
 
 <% @resume_item.each do |resume_item| %>
-  <p><%= link_to resume_item.title, resume_path(resume_item) %></p>
+  <p><%= link_to resume_item.title, resume_show_path(resume_item) %></p>
   <p><%= resume_item.subtitle %></p>
   <p><%= resume_item.body %></p>
   <%= image_tag resume_item.thumb_image unless resume_item.thumb_image.nil? %>
