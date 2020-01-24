@@ -4,4 +4,6 @@ class Blog < ApplicationRecord
   friendly_id :title, use: :slugged #читабельная строка в браузере
 
   validates_presence_of :title, :body #защита от создания пустого блога
+
+  belongs_to :topic
 end
