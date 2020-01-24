@@ -3,6 +3,10 @@ class ResumesController < ApplicationController
     @resume_item = Resume.all
   end
 
+  def angular
+    @angular_resume_item = Resume.angular
+  end
+
   def new
     @resume_item = Resume.new
   end
