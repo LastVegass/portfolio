@@ -1,4 +1,5 @@
 class Resume < ApplicationRecord
+  include Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
 
   def self.angular #функция вызывающия все айтемы с названием Angular
@@ -10,7 +11,7 @@ class Resume < ApplicationRecord
   after_initialize :set_defaults #автоматическое выполнение функции set_defaults при создании resume_item
 
   def set_defaults #функция дает при создании resume_item дефолтные картинки
-    self.main_image ||= "https://via.placeholder.com/600x400"
-    self.thumb_image ||= "https://via.placeholder.com/300x200"
+    self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
+    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
   end
 end
