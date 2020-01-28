@@ -44,5 +44,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# friendly_id нужен для создания упрощенных и понятных маршрутов в строке барузера
 gem 'friendly_id', '~> 5.1.0'
+# devise нужен для создания удобной регитстрации пользователейчерез email
 gem 'devise', '~> 4.7', '>= 4.7.1'
