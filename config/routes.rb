@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get '/users/sign_out' => 'devise/sessions#destroy'
-
+  devise_for :users, path: '', path_names: {sign_in:"login", sign_out:"logout", sign_up:"register"}
   resources :resumes, except: [:show]
   get 'angular-items', to: 'resumes#angular'
   get 'resume/:id', to: 'resumes#show', as: 'resume_show'
