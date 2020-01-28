@@ -1,6 +1,6 @@
 class Resume < ApplicationRecord
   has_many :technologies
-  accepts_nested_attributes_for :technologies,
+  accepts_nested_attributes_for :technologies, #создание нескольких атрибутов в виде вложенного хэша у объектов
                                 reject_if: lambda { |attrs| attrs['name'].blank? }
 
 
