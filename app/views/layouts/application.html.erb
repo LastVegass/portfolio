@@ -21,7 +21,7 @@
     <% end %>
     <%= yield %>
 
-    <% if session[:source] %>
+    <% if session[:source] = params[:q] %>
       <p>Thanks for visisting me from <%= session[:source] %>
     <% end %>
   </body>
