@@ -12,7 +12,7 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume_item = Resume.new(params.require(:resume).permit(:title, :subtitle, :body))
+    @resume_item = Resume.new(resume_params)
 
     respond_to do |format|
       if @resume_item.save
@@ -31,7 +31,7 @@ class ResumesController < ApplicationController
     @resume_item = Resume.find(params[:id])
 
     respond_to do |format|
-      if @resume_item.update(params.require(:resume).permit(:title, :subtitle, :body))
+      if @resume_item.update(resume_params) #params.require(:resume).permit(:title, :subtitle, :body)
         format.html { redirect_to resumes_path, notice: 'Record was successfully updated.' }
       else
         format.html { render :edit }
@@ -54,6 +54,15 @@ class ResumesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to resumes_url, notice: 'Record was removed.' }
     end
+  end
+
+  private
+
+  def resume_params
+    params.require(:resume).permit(:title,
+                                   :subtitle,
+                                   :body
+                                  )
   end
 
 end
