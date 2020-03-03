@@ -1,4 +1,5 @@
 class ResumesController < ApplicationController
+  layout 'resume'
   def index
     @resume_item = Resume.all
   end
