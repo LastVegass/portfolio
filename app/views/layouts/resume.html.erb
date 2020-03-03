@@ -21,8 +21,6 @@
 
     <%= yield %>
 
-    <% if session[:source] = params[:q] %>
-      <p>Thanks for visisting me from <%= session[:source] %>
-    <% end %>
+    <%= source_helper("application") %>
   </body>
 </html>
