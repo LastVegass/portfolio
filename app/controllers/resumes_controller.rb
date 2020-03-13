@@ -1,5 +1,7 @@
 class ResumesController < ApplicationController
+  before_action :set_resume_item, only: [:edit, :update, :show, :destroy]
   layout 'resume'
+
   def index
     @resume_item = Resume.all
   end
@@ -26,12 +28,9 @@ class ResumesController < ApplicationController
   end
 
   def edit
-    @resume_item = Resume.find(params[:id])
   end
 
   def update
-    @resume_item = Resume.find(params[:id])
-
     respond_to do |format|
       if @resume_item.update(resume_params) #params.require(:resume).permit(:title, :subtitle, :body)
         format.html { redirect_to resumes_path, notice: 'Record was successfully updated.' }
@@ -42,12 +41,10 @@ class ResumesController < ApplicationController
   end
 
   def show
-    @resume_item = Resume.find(params[:id])
   end
 
   def destroy
     #Perform the lookup
-    @resume_item = Resume.find(params[:id])
 
     #Destroy the record
     @resume_item.destroy
@@ -67,4 +64,7 @@ class ResumesController < ApplicationController
                                   )
   end
 
+  def set_resume_item
+    @resume_item = Resume.find(params[:id])
+  end
 end
