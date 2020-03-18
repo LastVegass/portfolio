@@ -51,3 +51,4 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 #
 gem 'bootstrap', '~> 4.4.1'
+gem 'lastvegas_view_tool', git: 'https://github.com/LastVegass/Lastvegas_view_tool'
