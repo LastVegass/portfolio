@@ -12,7 +12,7 @@ class ResumesController < ApplicationController
 
   def new
     @resume_item = Resume.new
-    3.times{@resume_item.technologies.build }
+    3.times { @resume_item.technologies.build }
   end
 
   def create
