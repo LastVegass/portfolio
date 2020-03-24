@@ -1,5 +1,5 @@
 <h1>Resumes items</h1>
 
-<%= link_to "Create new item", new_resume_url %>
+<%= link_to "Create new item", new_resume_url if logged_in?(:site_admin) %>
 
 <%= render partial: 'resume_item', collection: @resume_item %>

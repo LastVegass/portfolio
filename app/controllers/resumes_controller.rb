@@ -1,7 +1,7 @@
 class ResumesController < ApplicationController
   before_action :set_resume_item, only: [:edit, :update, :show, :destroy]
   layout 'resume'
-
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
   def index
     @resume_item = Resume.all
   end
